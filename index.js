@@ -6,6 +6,7 @@ import authRouter from "./routes/auth.route.js";
 import listingRouter from "./routes/listing.route.js";
 import cookieParser from "cookie-parser";
 import path from "path";
+import cors from "cors";
 
 // Load environment variables from .env
 dotenv.config();
@@ -41,6 +42,11 @@ app.use("/api/listing", listingRouter);
 // app.get("/", (req, res) => {
 //   res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
 // });
+app.use(cors({
+  origin: "https://your-frontend-url.com", // 👈 update with your deployed frontend
+  credentials: true,
+}));
+
 
 // Global Error Handler
 app.use((err, req, res, next) => {
