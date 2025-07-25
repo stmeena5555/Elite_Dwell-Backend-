@@ -35,12 +35,12 @@ app.use("/api/auth", authRouter);
 app.use("/api/listing", listingRouter);
 
 // Serve static files (for frontend)
-app.use(express.static(path.join(__dirname, "/client/dist")));
+// app.use(express.static(path.join(__dirname, "/client/dist")));
 
-// Catch-all route to serve index.html for React/Vite frontend
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
-});
+// // Catch-all route to serve index.html for React/Vite frontend
+// app.get("/", (req, res) => {
+//   res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+// });
 
 // Global Error Handler
 app.use((err, req, res, next) => {
@@ -54,7 +54,7 @@ app.use((err, req, res, next) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on Port ${PORT}!`);
 });
